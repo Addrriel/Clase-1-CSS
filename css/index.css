@@ -1,0 +1,297 @@
+/* 
+  
+   1) El * basicamente es un reset (Normalización)
+   
+   ¿Qué es?
+   Es un conjunto de reglas que se aplican a todos los elementos (*) para eliminar
+   los estilos por defecto que traen los navegadores.
+   
+   ¿Para qué sirve?
+   Los navegadores (Chrome, Firefox, Safari) tienen diferentes márgenes y rellenos
+   por defecto. Esto asegura que empecemos desde cero en todos ellos.
+   
+   ¿Por qué lo uso?
+   Para tener control total sobre el diseño y evitar inconsistencias visuales
+   entre diferentes navegadores.
+*/
+* {
+    margin: 0;
+    padding: 0;
+    /* 
+       box-sizing: border-box;
+       ¿Por qué? Cambia el modelo de caja para que el padding y el border
+       se incluyan en el ancho total (width) del elemento. Facilita mucho
+       el cálculo de tamaños.
+    */
+    box-sizing: border-box;
+}
+
+/* 
+  
+   2) ESTILOS GLOBALES (Body)
+   
+   ¿Qué es?
+   Reglas que se aplicarán a todo el cuerpo del documento.
+   
+   ¿Para qué sirve?
+   Define la tipografía base, el color de fondo y el color del texto para
+   toda la página.
+*/
+body {
+    /* 
+       font-family:
+       Define la fuente. Usamos Arial como primera opción, y sans-serif
+       (sin remates) como respaldo genérico si Arial no está disponible.
+    */
+    font-family: Arial, sans-serif;
+
+    /* Color de fondo suave para no cansar la vista (blanco humo) */
+    background-color: #f4f4f4;
+
+    /* Color de texto oscuro (gris muy oscuro) para buen contraste */
+    color: #333;
+
+    /* Altura de línea para mejorar la legibilidad del texto */
+    line-height: 1.6;
+}
+
+/* 
+   
+   3) ENCABEZADO (Header)
+   
+*/
+header {
+    /* Color de fondo oscuro para destacar el encabezado */
+    background-color: #2c3e50;
+
+    /* Texto blanco para contrastar con el fondo oscuro */
+    color: #fff;
+
+    /* 
+       padding: 1rem 0;
+       Espaciado interno: 1rem arriba/abajo, 0 a los lados.
+       1rem suele ser igual a 16px (depende de la configuración del navegador).
+       Usamos rem porque es relativo al tamaño de fuente raíz, mejor para accesibilidad.
+    */
+    padding: 1rem 0;
+
+    /* Centra el texto horizontalmente */
+    text-align: center;
+}
+
+header h1 {
+    /* Quitamos el margen inferior por defecto del h1 para centrarlo mejor verticalmente con el padding del header */
+    margin: 0;
+}
+
+/* 
+   
+   4) CONTENEDOR PRINCIPAL
+   
+   Usamos una clase (.contenedor-principal) para controlar el ancho del contenido.
+*/
+.contenedor-principal {
+    /* 
+       max-width: 800px;
+       El contenido no crecerá más de 800px.
+       ¿Por qué? Las líneas de texto muy largas son difíciles de leer.
+    */
+    max-width: 800px;
+
+    /* 
+       margin: 20px auto;
+       20px arriba/abajo: da aire respecto al header y footer.
+       auto izquierda/derecha: CENTRA el bloque horizontalmente en la página.
+    */
+    margin: 20px auto;
+
+    /* Espaciado interno para que el texto no toque los bordes en pantallas pequeñas */
+    padding: 0 20px;
+
+    /* Fondo blanco para el área de contenido, estilo "tarjeta" o "papel" */
+    background-color: #fff;
+
+    /* Sombra suave para dar profundidad */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+    /* Redondeamos un poco las esquinas */
+    border-radius: 5px;
+
+    /* Padding vertical extra dentro del contenedor blanco */
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+/* 
+   INTRODUCCIÓN
+*/
+
+/* Estilos compartidos para los párrafos dentro de las secciones */
+.introduccion p,
+.contenedorSubtema1 p,
+.contenedorSubtema2 p,
+.noticiaGithub p {
+    /* Separación entre párrafos */
+    margin-bottom: 1rem;
+}
+
+/* Identificador único #inicio (usado para el ancla del footer) */
+#inicio {
+    /* 
+       scroll-margin-top: 20px;
+       ¿Para qué? Cuando haces clic en "Ir al inicio", esto asegura que el
+       título no quede pegado al borde superior de la ventana, dando un poco de aire.
+    */
+    scroll-margin-top: 20px;
+}
+
+/* Estilos específicos para los títulos de las secciones (h2) */
+h2 {
+    color: #2c3e50;
+    /* Mismo azul oscuro del header para consistencia */
+    border-bottom: 2px solid #3498db;
+    /* Línea azul claro debajo del título */
+    padding-bottom: 10px;
+    /* Espacio entre el texto y la línea */
+    margin-bottom: 20px;
+    /* Espacio debajo del título antes del párrafo */
+}
+
+/* Separación entre grandes bloques de contenido */
+.introduccion,
+.contenedorSubtema1,
+.contenedorSubtema2,
+.noticiaGithub {
+    margin-bottom: 40px;
+}
+
+/* 
+   ARTICLE DE MI GITHUB
+*/
+.noticiaGithub {
+    background-color: #e8f6f3;
+    /* Fondo verde muy claro para destacar esta sección */
+    padding: 20px;
+    border-left: 5px solid #1abc9c;
+    /* Borde grueso a la izquierda para acento */
+    border-radius: 4px;
+}
+
+.noticiaGithub img {
+    /* 
+       max-width: 100%;
+       ¿Por qué? Hace que la imagen sea RESPONSIVA. Si el contenedor es más pequeño
+       que la imagen, la imagen se encogerá para caber, en lugar de desbordarse.
+    */
+    max-width: 100%;
+
+    /* height: auto mantiene la proporción de la imagen al redimensionarse */
+    height: auto;
+
+    /* Centrar imagen (display block + margin auto) */
+    display: block;
+    margin: 20px auto;
+
+    border-radius: 8px;
+    /* Bordes redondeados en la imagen */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Sombra para dar efecto de elevación */
+}
+
+.noticiaGithub a {
+    display: inline-block;
+    /* Permite poner padding y margin a un enlace */
+    background-color: #3498db;
+    /* Botón azul */
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    /* Quita el subrayado por defecto */
+    border-radius: 5px;
+    font-weight: bold;
+
+    /* Transición suave para el efecto hover */
+    transition: background-color 0.3s ease;
+}
+
+/* Efecto al pasar el mouse por encima del botón */
+.noticiaGithub a:hover {
+    background-color: #2980b9;
+    /* Azul un poco más oscuro */
+}
+
+/* 
+   ==========================================================================
+   PIE DE PÁGINA (Footer)
+   ==========================================================================
+*/
+footer {
+    background-color: #333;
+    /* Fondo oscuro */
+    color: #fff;
+    padding: 40px 0;
+    margin-top: 40px;
+
+    /* 
+       display: flex;
+       Activa Flexbox. Convierte a los hijos directos en elementos flexibles.
+       Permite alinear columnas fácilmente.
+    */
+    display: flex;
+
+    /* Distribuye el espacio entre los elementos (izquierda, centro, derecha) */
+    justify-content: space-around;
+
+    /* Alinea los elementos verticalmente al centro */
+    align-items: flex-start;
+
+    /* Permite que los elementos bajen a otra línea si no caben (responsive básico) */
+    flex-wrap: wrap;
+}
+
+/* Estilos para las columnas del footer */
+.contenedor-logo,
+.redesSociales,
+.contenedorID {
+    /* Margen para que no se peguen si hacen wrap en móviles */
+    margin: 10px;
+}
+
+.contenedor-logo img {
+    width: 50px;
+    /* Tamaño fijo pequeño para el logo del footer */
+    border-radius: 50%;
+    /* Hace la imagen circular */
+    vertical-align: middle;
+    /* Alinea con el texto si están en línea */
+}
+
+/* Estilos para la lista de redes sociales */
+.redesSociales ul {
+    list-style: none;
+    /* Quita los puntos (bullets) de la lista */
+    padding: 0;
+}
+
+.redesSociales li {
+    margin-bottom: 5px;
+}
+
+.redesSociales a {
+    color: #ddd;
+    /* Gris claro */
+    text-decoration: none;
+}
+
+.redesSociales a:hover {
+    color: #fff;
+    /* Blanco brillante al pasar el mouse */
+    text-decoration: underline;
+}
+
+/* Enlace "Ir al inicio" */
+.contenedorID a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: bold;
+}
